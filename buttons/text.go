@@ -38,6 +38,11 @@ func (btn *TextButton) GetButtonIndex() int {
 	return btn.btnIndex
 }
 
+// GetButtonName get the current label of the button
+func (btn *TextButton) GetButtonName() string {
+	return btn.label
+}
+
 // SetText allows the text on the button to be changed on the fly
 func (btn *TextButton) SetText(label string) {
 	btn.label = label
@@ -123,7 +128,7 @@ func getImageWithText(text string, textColour color.Color, backgroundColour colo
 	c.SetClip(dstImg.Bounds())
 
 	x := int((btnSize - width) / 2) // Horizontally centre text
-	y := int(50 + (size / 3))  // Fudged vertical centre, erm, very "heuristic"
+	y := int(50 + (size / 3))       // Fudged vertical centre, erm, very "heuristic"
 
 	pt := freetype.Pt(x, y)
 	c.DrawString(text, pt)
